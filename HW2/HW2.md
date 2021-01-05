@@ -28,6 +28,7 @@ message:
 ## strlen.asm
 ---
 ```assembly
+
 BITS 64
 
 section .text
@@ -65,7 +66,7 @@ _start:
 
 section .data
 
-    msg db "hello",0x ; 16진수 0xA = 아스키코드 10(= LF(new line))
+    msg db "hello",0x           ; 16진수 0xA = 아스키코드 10(= LF(new line))
     len db 0,0xA         
 ```
 
