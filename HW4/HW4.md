@@ -1,13 +1,26 @@
 # HW-4
 ## crackme 4
+
 1. file crackme4 : 32비트
+
 ![42](41.PNG)
+
 ---
 gdb
+
+
 2. i fun : 함수 체크
+
+
 ![fun](fun.PNG)
+
+
 > main 함수 존재, b main
+
+
 3. disassemble main
+
+
 ![43](43.PNG)
 
 4. disassemble check
