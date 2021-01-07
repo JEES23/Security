@@ -1,29 +1,32 @@
 # HW-4
-## crackme 4
+## CrackMe0x04
 
-1. file crackme4 : 32비트
+### 1. file crackme4 : **32비트**
 
 ![42](41.PNG)
 
 ---
-gdb
+- **gdb crackme0x04**
 
 
-2. i fun : 함수 체크
+### 2. i fun : 함수 체크
 
 
 ![fun](fun.PNG)
 
 
-> main 함수 존재, b main
+> main 함수가 존재하므로 브레이크 생성 
 
 
-3. disassemble main
+
+### 3. disassemble main
 
 
 ![43](43.PNG)
 
-4. disassemble check
+### 4. disassemble check
+
+
 ```assembly
    0x08048484 <+0>:     push   ebp      
    0x08048485 <+1>:     mov    ebp,esp
@@ -38,7 +41,7 @@ gdb
    0x080484a6 <+34>:    jae    0x80484fb <check+119>         ;카운터 >= '입력한 비밀번호'의 길이 라면 check+119로 이동하기
    0x080484a8 <+36>:    mov    eax,DWORD PTR [ebp-0xc]       ;카운터의 값을 eax로 이동하기
    0x080484ab <+39>:    add    eax,DWORD PTR [ebp+0x8]       ;eax에 '입력한 비밀번호'의 주소를 더하기
-   0x080484ae <+42>:    movzx  eax,BYTE PTR [eax]            ;eax에 들어있는 주소가 가르키는 값(입력한 비밀번호[카운터])을 eax에 저장하기
+   0x080484ae <+42>:    movzx  eax,BYTE PTR [eax]            ;eax에 들어있는 주소가 가르키는 값(입력한 비밀번호[카운터])을 eax에 저장하기 
    0x080484b1 <+45>:    mov    BYTE PTR [ebp-0xd],al         ;al 값(입력한 비밀번호[카운터])을 [ebp-0xd]로 이동하기 
    0x080484b4 <+48>:    lea    eax,[ebp-0x4]                 ;[ebp-0x4]의 주소를 eax로 이동하기    
    0x080484b7 <+51>:    mov    DWORD PTR [esp+0x8],eax       ;eax 값을 [esp+0x8](sscanf 함수의 피라미터->숫자로 변환될 값)로 이동하기
@@ -64,4 +67,6 @@ gdb
    0x08048508 <+132>:   ret                                  ;리턴하기
    ```
 
-이를 통해 crackme4의 비밀번호는 '각 자리의 숫자의 총합이 15인 수'라는 것을 알 수 있다.
+- **이를 통해 crackme4의 비밀번호는 '각 자리의 숫자의 총합이 15인 수'라는 것을 알 수 있다.**
+> ex) 50055, 12345, 54321 ...
+
