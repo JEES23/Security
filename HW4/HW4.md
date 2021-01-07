@@ -75,7 +75,7 @@
    0x08048508 <+132>:   ret                                  ;리턴하기
    ```
 
-- **이를 통해 crackme0x04의 비밀번호는 *'각 자리의 숫자의 총합이 15인 수'*라는 것을 알 수 있다.**
+**이를 통해 crackme0x04의 비밀번호는 *'각 자리의 숫자의 총합이 15인 수'*라는 것을 알 수 있다.**
 > ex) 50055, 12345, 54321 ...
 
 
@@ -88,7 +88,7 @@
 ![51](51.PNG)
 
 ---
-- **gdb crackme0x04**
+- **gdb crackme0x05**
 
 
 ### 2. `i fun` : 함수 체크
@@ -150,6 +150,7 @@
    0x0804852b <+99>:    lea    eax,[ebp-0xc]                 ;카운터 주소를 eax에 이동하기
    0x0804852e <+102>:   inc    DWORD PTR [eax]               ;카운터 값을 1씩 증가하기
    0x08048530 <+104>:   jmp    0x80484dc <check+20>          ;<check+20>으로 이동하기
+   
    0x08048532 <+106>:   mov    DWORD PTR [esp],0x8048679     ;"Password Incorreck!\n"를 esp에 이동하기(prinf의 피라미터)
    0x08048539 <+113>:   call   0x8048394 <printf@plt>        ;printf 함수 실행하기
 
@@ -171,9 +172,10 @@
    0x0804849f <+27>:    call   0x80483a4 <sscanf@plt>        ;ssacnf 함수를 실행하기
 
    0x080484a4 <+32>:    mov    eax,DWORD PTR [ebp-0x4]       ;'입력된 비밀번호'(숫자로 변환)를 eax로 이동하기
-   0x080484a7 <+35>:    and    eax,0x1                       ;and 비트 연산 ->'입력된 비밀번호'와 1을 연산, eax에 '입력된 비밀번호'의 끝자리 비트가 리턴하기
+   0x080484a7 <+35>:    and    eax,0x1                       ;and 비트 연산 ->'입력된 비밀번호'와 1을 연산, eax에 연산 후 끝자리 비트를 리턴하기
    0x080484aa <+38>:    test   eax,eax                       ;eax의 값과 eax의 값을 and 비트 연산 결과가 0일 때는 ZF=True로 되기
    0x080484ac <+40>:    jne    0x80484c6 <parell+66>         ;ZF=False일 때 <parell+66>으로 이동하기
+
    0x080484ae <+42>:    mov    DWORD PTR [esp],0x804866b     ;"Password Incorreck!\n"를 esp(printf의 피라미터)에 이동하기
    0x080484b5 <+49>:    call   0x8048394 <printf@plt>        ;printf 함수를 실행하기
    0x080484ba <+54>:    mov    DWORD PTR [esp],0x0           ;0x0을 esp에 이동하기(exit의 피라미터)
@@ -181,5 +183,5 @@
    0x080484c6 <+66>:    leave                                ;나가기
    0x080484c7 <+67>:    ret                                  ;리턴
 ```
-- **이를 통해 crackme0x05의 비밀번호는 *'각 자리의 숫자의 총합이 16이면서 짝수인 수'*라는 것을 알 수 있다.**
+**이를 통해 crackme0x05의 비밀번호는 *'각 자리의 숫자의 총합이 16이면서 짝수인 수'*라는 것을 알 수 있다.**
 > ex) 50056, 12346, 5432 ...
