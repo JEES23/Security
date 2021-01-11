@@ -69,7 +69,7 @@ buf의 위치는 위 사진에서 rdi의 값이고 *0x00007fffffffe430* 입니�
 
 ![68](68.PNG)
 
-여기서 0x61과 [rbp-0x4]의 값을 비교하므로 Innocent의 주솟값은 [rbp-0x4]라는 것을 알 수 있고, 이는 *0x7fffffffe4bc* 입니다.
+여기서 0x12354678과 [rbp-0x4]의 값을 비교하므로 Innocent의 주솟값은 [rbp-0x4]라는 것을 알 수 있고, 이는 *0x7fffffffe4bc* 입니다.
 
 이제 이 값들을 빼주면 buf와 Innocent의 거리가 나옵니다.
 
@@ -116,7 +116,7 @@ buf의 위치는 위 사진에서 rdi의 값이고 *0x00007fffffffe440* 입니�
 
 ![613](613.PNG)
 
-여기서 0x61과 [rbp-0x4]의 값을 비교하므로 Innocent의 주솟값은 [rbp-0x4]라는 것을 알 수 있고, 이는 *0x7fffffffe4cc* 입니다.
+여기서 0x12345678과 [rbp-0x4]의 값을 비교하므로 Innocent의 주솟값은 [rbp-0x4]라는 것을 알 수 있고, 이는 *0x7fffffffe4cc* 입니다.
 
 이제 이 값들을 빼주면 buf와 Innocent의 거리가 나옵니다.
 
